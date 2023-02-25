@@ -109,5 +109,5 @@ nine
 ```
 
 - raw image and segmentation image for train and validation
-  ![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352907-7551e3b2-9de8-4c10-a39c-f7d3237fbd88.png)
-- ![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352632-56c1c7b7-adf9-476b-a4a1-c7569d6797fd.png)
+![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352907-7551e3b2-9de8-4c10-a39c-f7d3237fbd88.png)
+![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352632-56c1c7b7-adf9-476b-a4a1-c7569d6797fd.png)
