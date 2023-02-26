@@ -88,13 +88,13 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
             segmentation_canvas[paste_start_y:paste_end_y, paste_start_x:paste_end_x, :][mnist_char_image > 0] = \
             mnist_segmentation_color_char_image[mnist_char_image > 0]
 
-            file_name = f'{os.path.basename(output_sub_dir_path)}_{file_index:09d}'
+        file_name = f'{os.path.basename(output_sub_dir_path)}_{file_index:09d}'
 
-            output_raw_image_path = os.path.join(output_sub_dir_path, f'{file_name}_raw.jpg')
-            Image.fromarray(canvas).save(output_raw_image_path, quality=100, subsampling=0)
+        output_raw_image_path = os.path.join(output_sub_dir_path, f'{file_name}_raw.jpg')
+        Image.fromarray(canvas).save(output_raw_image_path, quality=100, subsampling=0)
 
-            output_seg_image_path = os.path.join(output_sub_dir_path, f'{file_name}_seg.jpg')
-            Image.fromarray(segmentation_canvas).save(output_seg_image_path, quality=100, subsampling=0)
+        output_seg_image_path = os.path.join(output_sub_dir_path, f'{file_name}_seg.jpg')
+        Image.fromarray(segmentation_canvas).save(output_seg_image_path, quality=100, subsampling=0)
 
 
 def main(output_dir_path, train_sample_num, valid_sample_num, image_max_size, image_min_size, char_max_size,
@@ -129,7 +129,7 @@ def main(output_dir_path, train_sample_num, valid_sample_num, image_max_size, im
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='main')
     parser.add_argument('--output_dir_path', type=str, default='~/.vaik-mnist-segmentation-dataset')
-    parser.add_argument('--train_sample_num', type=int, default=10000)
+    parser.add_argument('--train_sample_num', type=int, default=100)
     parser.add_argument('--valid_sample_num', type=int, default=100)
     parser.add_argument('--image_max_size', type=int, default=768)
     parser.add_argument('--image_min_size', type=int, default=256)
