@@ -4,7 +4,9 @@ Create MNIST segmentation dataset
 
 ## Example
 
-![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352632-56c1c7b7-adf9-476b-a4a1-c7569d6797fd.png)
+![Screenshot from 2023-03-02 10-24-54](https://user-images.githubusercontent.com/116471878/222306913-b40cec5f-c061-48e0-aaac-ed227b298f68.png)
+
+![train_000000005_seg](https://user-images.githubusercontent.com/116471878/222306870-9a48d3b0-c211-470f-9a99-29a78321a17d.jpg)
 
 ## Usage
 
@@ -25,6 +27,7 @@ python main.py --output_dir_path ~/.vaik-mnist-segmentation-dataset \
 - classes.txt
 
 ```text
+background
 zero
 one
 two
@@ -42,6 +45,7 @@ nine
 ```text
 {
     "classes": [
+        "background",
         "zero",
         "one",
         "two",
@@ -55,59 +59,65 @@ nine
     ],
     "colors": [
         [
-            255,
+            0,
             0,
             0
         ],
         [
-            255,
-            153,
-            0
+            1,
+            1,
+            1
         ],
         [
-            203,
-            255,
-            0
+            2,
+            2,
+            2
         ],
         [
-            51,
-            255,
-            0
+            3,
+            3,
+            3
         ],
         [
-            0,
-            255,
-            102
+            4,
+            4,
+            4
         ],
         [
-            0,
-            255,
-            255
+            5,
+            5,
+            5
         ],
         [
-            0,
-            102,
-            255
+            6,
+            6,
+            6
         ],
         [
-            50,
-            0,
-            255
+            7,
+            7,
+            7
         ],
         [
-            204,
-            0,
-            255
+            8,
+            8,
+            8
         ],
         [
-            255,
-            0,
-            152
+            9,
+            9,
+            9
+        ],
+        [
+            10,
+            10,
+            10
         ]
     ]
 }
 ```
 
 - raw image and segmentation image for train and validation
-![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352907-7551e3b2-9de8-4c10-a39c-f7d3237fbd88.png)
-![vaik-mnist-segmentation-dataset](https://user-images.githubusercontent.com/116471878/221352632-56c1c7b7-adf9-476b-a4a1-c7569d6797fd.png)
+
+![Screenshot from 2023-03-02 10-24-54](https://user-images.githubusercontent.com/116471878/222306913-b40cec5f-c061-48e0-aaac-ed227b298f68.png)
+![Screenshot from 2023-03-02 10-30-56](https://user-images.githubusercontent.com/116471878/222307625-0284e290-1f0f-40f4-83cc-49bdc1693338.png)

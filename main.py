@@ -117,9 +117,12 @@ def main(output_dir_path, train_sample_num, valid_sample_num, image_max_size, im
     write(output_valid_dir_path, valid_sample_num, image_max_size, image_min_size, char_max_size, char_min_size,
           char_max_num, char_min_num, x_test, y_test, colors)
 
-    shutil.copy(classes_txt_path, os.path.join(output_dir_path, os.path.basename(classes_txt_path)))
+    with open(os.path.join(output_dir_path, os.path.basename(classes_txt_path)), 'w') as f:
+        f.write('background\n')
+        for class_label in classes:
+            f.write(f'{class_label}\n')
 
-    json_dict = {'classes': classes, 'colors': colors}
+    json_dict = {'classes': ['background', ] + classes, 'colors': [[0, 0, 0], ] + colors}
     with open(os.path.join(output_dir_path, 'classes.json'), 'w') as f:
         json.dump(json_dict, f, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
 
