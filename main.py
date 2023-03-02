@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 def get_classes_color(classes):
     colors = []
     for classes_index in range(len(classes)):
-        colors.append([classes_index + 1, ] * 3)
+        colors.append([classes_index, ] * 3)
     return colors
 
 
@@ -73,7 +73,7 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
             mnist_color_char_image[:, :, 2] = np.clip((mnist_char_image * random.uniform(0., 1.)).astype(np.uint8), 0,
                                                       255)
             mnist_segmentation_color_char_image = np.zeros(mnist_char_image.shape + (3,), dtype=np.uint8)
-            mnist_segmentation_color_char_image[mnist_char_image > 0] = colors[y[mnist_index]]
+            mnist_segmentation_color_char_image[mnist_char_image > 0] = colors[y[mnist_index+1]]
 
             paste_start_x = random.randint(0, canvas.shape[1] - mnist_color_char_image.shape[1])
             paste_end_x = paste_start_x + mnist_color_char_image.shape[1]
@@ -88,10 +88,10 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
 
         file_name = f'{os.path.basename(output_sub_dir_path)}_{file_index:09d}'
 
-        output_raw_image_path = os.path.join(output_sub_dir_path, f'{file_name}_raw.jpg')
+        output_raw_image_path = os.path.join(output_sub_dir_path, f'{file_name}_raw.png')
         Image.fromarray(canvas).save(output_raw_image_path, quality=100, subsampling=0)
 
-        output_seg_image_path = os.path.join(output_sub_dir_path, f'{file_name}_seg.jpg')
+        output_seg_image_path = os.path.join(output_sub_dir_path, f'{file_name}_seg.png')
         Image.fromarray(segmentation_canvas).save(output_seg_image_path, quality=100, subsampling=0)
 
 
@@ -117,12 +117,9 @@ def main(output_dir_path, train_sample_num, valid_sample_num, image_max_size, im
     write(output_valid_dir_path, valid_sample_num, image_max_size, image_min_size, char_max_size, char_min_size,
           char_max_num, char_min_num, x_test, y_test, colors)
 
-    with open(os.path.join(output_dir_path, os.path.basename(classes_txt_path)), 'w') as f:
-        f.write('background\n')
-        for class_label in classes:
-            f.write(f'{class_label}\n')
+    shutil.copy(classes_txt_path, os.path.join(output_dir_path, os.path.basename(classes_txt_path)))
 
-    json_dict = {'classes': ['background', ] + classes, 'colors': [[0, 0, 0], ] + colors}
+    json_dict = {'classes': classes, 'colors': colors}
     with open(os.path.join(output_dir_path, 'classes.json'), 'w') as f:
         json.dump(json_dict, f, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
 

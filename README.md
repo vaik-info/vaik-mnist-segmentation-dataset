@@ -4,9 +4,9 @@ Create MNIST segmentation dataset
 
 ## Example
 
-![Screenshot from 2023-03-02 10-24-54](https://user-images.githubusercontent.com/116471878/222306913-b40cec5f-c061-48e0-aaac-ed227b298f68.png)
+![Screenshot from 2023-03-02 11-04-34](https://user-images.githubusercontent.com/116471878/222312171-00fbcad5-a5a0-48d7-82e5-aae7059314d6.png)
 
-![train_000000005_seg](https://user-images.githubusercontent.com/116471878/222306870-9a48d3b0-c211-470f-9a99-29a78321a17d.jpg)
+![train_000000000_seg](https://user-images.githubusercontent.com/116471878/222312254-aa393fc7-f5c5-4c2f-953e-ba1cf15b757d.png)
 
 ## Usage
 
@@ -119,5 +119,5 @@ nine
 
 - raw image and segmentation image for train and validation
 
-![Screenshot from 2023-03-02 10-24-54](https://user-images.githubusercontent.com/116471878/222306913-b40cec5f-c061-48e0-aaac-ed227b298f68.png)
-![Screenshot from 2023-03-02 10-30-56](https://user-images.githubusercontent.com/116471878/222307625-0284e290-1f0f-40f4-83cc-49bdc1693338.png)
+![Screenshot from 2023-03-02 11-04-34](https://user-images.githubusercontent.com/116471878/222312171-00fbcad5-a5a0-48d7-82e5-aae7059314d6.png)
+![Screenshot from 2023-03-02 11-05-02](https://user-images.githubusercontent.com/116471878/222312213-fe8ae23f-1da7-4b9a-957d-c807be4fa620.png)
