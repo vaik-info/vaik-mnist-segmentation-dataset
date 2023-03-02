@@ -126,10 +126,10 @@ def main(output_dir_path, train_sample_num, valid_sample_num, image_max_size, im
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='main')
     parser.add_argument('--output_dir_path', type=str, default='~/.vaik-mnist-segmentation-dataset')
-    parser.add_argument('--train_sample_num', type=int, default=100)
+    parser.add_argument('--train_sample_num', type=int, default=2500)
     parser.add_argument('--valid_sample_num', type=int, default=100)
-    parser.add_argument('--image_max_size', type=int, default=768)
-    parser.add_argument('--image_min_size', type=int, default=320)
+    parser.add_argument('--image_max_size', type=int, default=512)
+    parser.add_argument('--image_min_size', type=int, default=256)
     parser.add_argument('--char_max_size', type=int, default=192)
     parser.add_argument('--char_min_size', type=int, default=96)
     parser.add_argument('--char_max_num', type=int, default=6)
