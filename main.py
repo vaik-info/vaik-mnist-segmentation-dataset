@@ -60,7 +60,7 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
             dtype=np.uint8)
         segmentation_canvas = np.zeros(canvas.shape, dtype=canvas.dtype)
         for char_index in range(random.randint(char_min_num, char_max_num)):
-            mnist_index = random.randint(0, y.shape[0] - 1)
+            mnist_index = random.randint(0, y.shape[0]-1)
             mnist_char_image = np.array(Image.fromarray(x[mnist_index]).resize(
                 (random.randint(char_min_size, char_max_size), (random.randint(char_min_size, char_max_size)))))
             mnist_char_image = np.clip((mnist_char_image > 125) * 255, 0, 255)
@@ -73,7 +73,7 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
             mnist_color_char_image[:, :, 2] = np.clip((mnist_char_image * random.uniform(0., 1.)).astype(np.uint8), 0,
                                                       255)
             mnist_segmentation_color_char_image = np.zeros(mnist_char_image.shape + (3,), dtype=np.uint8)
-            mnist_segmentation_color_char_image[mnist_char_image > 0] = colors[y[mnist_index+1]]
+            mnist_segmentation_color_char_image[mnist_char_image > 0] = colors[y[mnist_index]+1]
 
             paste_start_x = random.randint(0, canvas.shape[1] - mnist_color_char_image.shape[1])
             paste_end_x = paste_start_x + mnist_color_char_image.shape[1]
@@ -85,7 +85,6 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
 
             segmentation_canvas[paste_start_y:paste_end_y, paste_start_x:paste_end_x, :][mnist_char_image > 0] = \
                 mnist_segmentation_color_char_image[mnist_char_image > 0]
-
         file_name = f'{os.path.basename(output_sub_dir_path)}_{file_index:09d}'
 
         output_raw_image_path = os.path.join(output_sub_dir_path, f'{file_name}_raw.png')
