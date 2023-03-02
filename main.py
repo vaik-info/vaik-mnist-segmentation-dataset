@@ -2,7 +2,6 @@ import argparse
 import os
 import random
 import shutil
-import colorsys
 import json
 from PIL import Image
 import numpy as np
@@ -15,8 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 def get_classes_color(classes):
     colors = []
     for classes_index in range(len(classes)):
-        rgb = colorsys.hsv_to_rgb(classes_index / len(classes), 1, 1)
-        colors.append([int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255)])
+        colors.append([classes_index + 1, ] * 3)
     return colors
 
 
@@ -83,10 +81,10 @@ def write(output_sub_dir_path, sample_num, image_max_size, image_min_size, char_
             paste_end_y = paste_start_y + mnist_color_char_image.shape[0]
 
             canvas[paste_start_y:paste_end_y, paste_start_x:paste_end_x, :][mnist_char_image > 0] = \
-            mnist_color_char_image[mnist_char_image > 0]
+                mnist_color_char_image[mnist_char_image > 0]
 
             segmentation_canvas[paste_start_y:paste_end_y, paste_start_x:paste_end_x, :][mnist_char_image > 0] = \
-            mnist_segmentation_color_char_image[mnist_char_image > 0]
+                mnist_segmentation_color_char_image[mnist_char_image > 0]
 
         file_name = f'{os.path.basename(output_sub_dir_path)}_{file_index:09d}'
 
